@@ -30,8 +30,8 @@ urlpatterns = [
     path('products/create/', ProductCreateCBV.as_view()),
     path('products/<int:id>/', ProductDetailCBV.as_view()),
 
-    path('users/register/', RegisterCBV),
-    path('users/login/', LoginCBV),
-    path('users/logout/', LogoutCBV)
+    path('users/register/', RegisterCBV.as_view()),
+    path('users/login/', LoginCBV.as_view()),
+    path('users/logout/', LogoutCBV.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
