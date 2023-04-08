@@ -18,20 +18,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from product.views import hello_view, now_date_view, gb_view, main_view, products_view, product_create_view, products_detail_view
-from users.views import register_view, login_view, logout_view
+from product.views import HelloCBV, NowdateCBV, GoodbyCBV, MainCBV, ProductsCBV, ProductCreateCBV, ProductDetailCBV
+from users.views import RegisterCBV, LoginCBV, LogoutCBV
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', hello_view),
-    path('now_date/', now_date_view),
-    path('goodby/', gb_view),
-    path('', main_view),
-    path('products/', products_view),
-    path('products/create/', product_create_view),
-    path('products/<int:id>', products_detail_view),
+    path('hello/', HelloCBV.as_view()),
+    path('now_date/', NowdateCBV.as_view()),
+    path('goodby/', GoodbyCBV.as_view()),
+    path('', MainCBV.as_view()),
+    path('products/', ProductsCBV.as_view()),
+    path('products/create/', ProductCreateCBV.as_view()),
+    path('products/<int:id>/', ProductDetailCBV.as_view()),
 
-    path('users/register/', register_view),
-    path('users/login/', login_view),
-    path('users/logout/', logout_view)
+    path('users/register/', RegisterCBV),
+    path('users/login/', LoginCBV),
+    path('users/logout/', LogoutCBV)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
